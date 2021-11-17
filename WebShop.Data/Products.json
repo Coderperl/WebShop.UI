@@ -1,0 +1,75 @@
+[
+  {
+
+    "ProductID": 1,
+
+    "PhotoPath": "SaturnV.jpg",
+
+    "ProductName": "Saturn V Rocket",
+
+    "ProductDescription": "Merlin is a family of rocket engines developed by SpaceX for use on its Falcon 1, Falcon 9 and Falcon Heavy launch vehicles. Merlin engines use a rocket grade kerosene (RP-1) and liquid oxygen as rocket propellants in a gas-generator power cycle. The Merlin engine was originally designed for recovery and reuse.",
+
+    "ProductPrice": 4960000000
+  },
+  {
+
+    "ProductID": 2,
+
+    "PhotoPath": "Falcon9.jpg",
+
+    "ProductName": "Falcon 9 Rocket",
+
+    "ProductDescription": "Falcon 9 is a reusable, two-stage rocket designed and manufactured by SpaceX for the reliable and safe transport of people and payloads into Earth orbit and beyond. Falcon 9 is the world’s first orbital class reusable rocket. Reusability allows SpaceX to refly the most expensive parts of the rocket, which in turn drives down the cost of space access.",
+
+    "ProductPrice": 1800000000
+  },
+  {
+
+    "ProductID": 3,
+
+    "PhotoPath": "FalconHeavy.png",
+
+    "ProductName": "Falcon Heavy Rocket",
+
+    "ProductDescription": "Falcon Heavy is the most powerful operational rocket in the world by a factor of two. With the ability to lift into orbit nearly 64 metric tons (141,000 lb) Falcon Heavy can lift more than twice the payload of the next closest operational vehicle, the Delta IV Heavy. Falcon Heavy is composed of three Falcon 9 nine-engine cores whose 27 Merlin engines together generate more than 5 million pounds of thrust at liftoff, equal to approximately eighteen 747 aircraft.",
+
+    "ProductPrice": 54000000000
+  },
+  {
+
+    "ProductID": 4,
+
+    "PhotoPath": "DragonCapsule.jpg",
+
+    "ProductName": "Dragon Shuttle",
+
+    "ProductDescription": "The Dragon spacecraft is capable of carrying up to 7 passengers to and from Earth orbit, and beyond. It is the only spacecraft currently flying that is capable of returning significant amounts of cargo to Earth, and is the first private spacecraft to take humans to the space station..",
+
+    "ProductPrice": 4000000000
+  },
+  {
+
+    "ProductID": 5,
+
+    "PhotoPath": "StarShip.jpg",
+
+    "ProductName": "StarShip Rocket",
+
+    "ProductDescription": "SpaceX’s Starship spacecraft and Super Heavy rocket (collectively referred to as Starship) represent a fully reusable transportation system designed to carry both crew and cargo to Earth orbit, the Moon, Mars and beyond. Starship will be the world’s most powerful launch vehicle ever developed, with the ability to carry in excess of 100 metric tonnes to Earth orbit.",
+
+    "ProductPrice": 100000000000
+  },
+  {
+
+    "ProductID": 6,
+
+    "PhotoPath": "N1Rocket.jpg",
+
+    "ProductName": "N1 (rocket)",
+
+    "ProductDescription": "The N1/L3 was a super heavy-lift launch vehicle intended to deliver payloads beyond low Earth orbit. The N1 was the Soviet counterpart to the US Saturn V and was intended to enable crewed travel to Earth's Moon and beyond, with studies beginning as early as 1959. Its first stage remains one of the most powerful rocket stages ever built.",
+
+    "ProductPrice": 100000000000
+  }
+]
+

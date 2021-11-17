@@ -1,0 +1,32 @@
+[
+  {
+    "CustomerID": 1,
+    "CustomerName": "Nils_Holgersson",
+    "Email": "nils.Bla@gmail.com",
+    "CardId": 1
+  },
+  {
+    "CustomerID": 2,
+    "CustomerName": "Danish_Gill",
+    "Email": "Danish.Bla@gmail.com",
+    "CardId": 2
+  },
+  {
+    "CustomerID": 3,
+    "CustomerName": "Shrek_Svensson",
+    "Email": "Shrek.Bla@gmail.com",
+    "CardId": 3
+  },
+  {
+    "CustomerID": 4,
+    "CustomerName": "Jompa_Nissesson",
+    "Email": "Jompa.Bla@gmail.com",
+    "CardId": 4
+  },
+  {
+    "CustomerID": 5,
+    "CustomerName": "HansIngvar_Bernadotte",
+    "Email": "hasse.Bla@gmail.com",
+    "CardId": 5
+  }
+]

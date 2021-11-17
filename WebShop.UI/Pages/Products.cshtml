@@ -1,0 +1,28 @@
+﻿@page
+@model WebShop.UI.Pages.ProductsModel
+@{
+}
+<div class="container-fluid">
+    <form asp-page-handler="Search">
+        <div class="d-flex">
+            <div class="input-group">
+                <input class="form-control" asp-for="SearchTerm"/>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+        @foreach (var product in Model.Products.ToList())
+        {
+            <img class="card-img-top w-50" src="/images/@product.PhotoPath" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@product.ProductName</h5>
+                <p class="card-text">@product.ProductDescription</p>
+                <p class="card-text">Current Price: @product.ProductPrice:-</p>
+                <a href="#" class="btn btn-primary">Add to cart</a>
+            </div>
+        }
+
+    </form>
+</div>
+
