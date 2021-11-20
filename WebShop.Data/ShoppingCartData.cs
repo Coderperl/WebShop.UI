@@ -23,17 +23,14 @@ namespace WebShop.Access
 
         public ShoppingCartDTO LoadById(int Id)
         {
-            return JsonConvert.DeserializeObject<List<ShoppingCartDTO>>(File.ReadAllText(path)).Find(s => s.Customer.CustomerID == Id);
+            return JsonConvert.DeserializeObject<List<ShoppingCartDTO>>(File.ReadAllText(path)).Find(s => s.Id == Id);
         }
 
         public void Save(ShoppingCartDTO _object)
         {
             ShoppingCartDTO newCart = _object;
             List<ShoppingCartDTO> carts = LoadAll().ToList();
-            int currentId = (carts.Last().Customer.CustomerID + 1);
-            newCart.Customer.CustomerID = currentId;
             carts.Add(newCart);
-            carts.Sort();
             File.WriteAllText(path, JsonConvert.SerializeObject(carts));
            
         }
@@ -42,9 +39,8 @@ namespace WebShop.Access
         {
             ShoppingCartDTO newCart = _object;
             List<ShoppingCartDTO> cart = LoadAll().ToList();
-            cart.RemoveAll(oldCart => oldCart.Customer.CustomerID == newCart.Customer.CustomerID);
+            cart.RemoveAll(oldCart => oldCart.Id == newCart.Id);
             cart.Add(newCart);
-            cart.Sort();
             File.WriteAllText(path, JsonConvert.SerializeObject(cart));
             return newCart;
         }

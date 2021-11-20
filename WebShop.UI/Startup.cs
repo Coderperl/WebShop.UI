@@ -38,6 +38,8 @@ namespace WebShop.UI
             services.AddSingleton<IDataSource<RecieptDTO>, RecieptData>();
             services.AddSingleton<IDataAccess<ShoppingCartDTO>, ShoppingCartAccess>();
             services.AddSingleton<IDataSource<ShoppingCartDTO>, ShoppingCartData>();
+            services.AddSession();
+            services.AddMemoryCache();
             services.AddRazorPages();
         }
 
@@ -59,6 +61,8 @@ namespace WebShop.UI
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
 
             app.UseAuthorization();
 

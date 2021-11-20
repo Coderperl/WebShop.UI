@@ -20,12 +20,12 @@ namespace WebShop.Access
 
         public IEnumerable<CardDTO> LoadAll()
         {
-            throw new NotImplementedException();
+            return JsonConvert.DeserializeObject<List<CardDTO>>(File.ReadAllText(path));
         }
 
         public CardDTO LoadById(int i)
         {
-            return JsonConvert.DeserializeObject<CardDTO>(File.ReadAllText(path));
+            return JsonConvert.DeserializeObject<List<CardDTO>>(File.ReadAllText(path)).Find(c => c.CardId == i);
         }
 
         public void Save(CardDTO _object)

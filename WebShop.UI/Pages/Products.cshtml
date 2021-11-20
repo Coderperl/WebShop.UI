@@ -1,17 +1,21 @@
 ﻿@page
 @model WebShop.UI.Pages.ProductsModel
+@using Microsoft.AspNetCore.Http;
 @{
 }
+<p>Using: @Model.custAccess.LoadById((int)HttpContext.Session.GetInt32("CustomerId")).CustomerName</p>
 <div class="container-fluid">
     <form asp-page-handler="Search">
         <div class="d-flex">
             <div class="input-group">
-                <input class="form-control" asp-for="SearchTerm"/>
+                <input class="form-control" placeholder="Search for specific product" asp-for="SearchTerm" />
+                <br />
                 <div class="input-group-append">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
             </div>
         </div>
+    </form>
         @foreach (var product in Model.Products.ToList())
         {
             <img class="card-img-top w-50" src="/images/@product.PhotoPath" alt="Card image cap">
@@ -19,10 +23,13 @@
                 <h5 class="card-title">@product.ProductName</h5>
                 <p class="card-text">@product.ProductDescription</p>
                 <p class="card-text">Current Price: @product.ProductPrice:-</p>
-                <a href="#" class="btn btn-primary">Add to cart</a>
+                <form asp-page-handler="AddToCart" asp-page="/Cart" method="post">
+                    <input type="hidden" name="ProductId" value="@(product.ProductID)" />
+                    <button class="btn btn-primary" type="submit">Add to cart</button>
+                </form>
+
             </div>
         }
-
-    </form>
 </div>
+
 

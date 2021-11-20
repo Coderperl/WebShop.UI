@@ -1,31 +1,31 @@
 [
   {
     "CustomerID": 1,
-    "CustomerName": "Nils_Holgersson",
+    "CustomerName": "Nils Holgersson",
     "Email": "nils.Bla@gmail.com",
     "CardId": 1
   },
   {
     "CustomerID": 2,
-    "CustomerName": "Danish_Gill",
+    "CustomerName": "Danish Gill",
     "Email": "Danish.Bla@gmail.com",
     "CardId": 2
   },
   {
     "CustomerID": 3,
-    "CustomerName": "Shrek_Svensson",
+    "CustomerName": "Shrek Svensson",
     "Email": "Shrek.Bla@gmail.com",
     "CardId": 3
   },
   {
     "CustomerID": 4,
-    "CustomerName": "Jompa_Nissesson",
+    "CustomerName": "Jompa Nissesson",
     "Email": "Jompa.Bla@gmail.com",
     "CardId": 4
   },
   {
     "CustomerID": 5,
-    "CustomerName": "HansIngvar_Bernadotte",
+    "CustomerName": "HansIngvar Bernadotte",
     "Email": "hasse.Bla@gmail.com",
     "CardId": 5
   }

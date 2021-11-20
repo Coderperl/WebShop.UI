@@ -1,4 +1,21 @@
 ﻿@page
 @model WebShop.UI.Pages.CartModel
-@{
-}
+@using Microsoft.AspNetCore.Http;
+<p>Using: @Model.custAccess.LoadById((int)HttpContext.Session.GetInt32("CustomerId")).CustomerName</p>
+<h1>Shopping Cart</h1>
+<div>
+    @foreach (var item in Model.Cart)
+    {
+        <p>
+            Product: @item.ProductName;
+            Price: @item.ProductPrice;
+            <div>
+                <p>
+                 Total cost: @(item.ProductPrice + item.ProductPrice)
+                </p>  
+            </div>
+        </p>
+ 
+    }
+
+</div>  

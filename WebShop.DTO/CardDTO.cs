@@ -9,11 +9,7 @@ namespace WebShop.DTO
     public class CardDTO
     {
         public int CardId { get; set; }
-        public int CardNumber { get; set; }
+        public double CardNumber { get; set; }
     }
-    public enum CardType
-    {
-        DebitCard,
-        CreditCard
-    };
+    
 }

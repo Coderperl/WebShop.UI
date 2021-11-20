@@ -1,0 +1,37 @@
+﻿@page
+@model WebShop.UI.Pages.CustomerModel
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<h1>Please Choose a customer for shopping</h1>
+<div>
+
+    @foreach (var customer in Model.Customers.ToList())
+    {
+
+        <div class="card-body">
+            <h5 class="card-title">@customer.CustomerName</h5>
+            <p class="card-text">@customer.Email</p>
+            @foreach (var card in Model.Card)
+            {
+                @if (customer.CustomerID == card.CardId)
+                {
+                    <p class="card-text">Cardnumber: @card.CardNumber</p>
+                    <form asp-page-handler="Customer">
+                        <input asp-for="@customer.CustomerID" type="hidden" value="@customer.CustomerID" />
+
+                        <button type="submit" class="btn btn-primary">Use for shopping</button>
+                    </form>
+
+
+                }
+             }
+
+        </div>
+    }
+
+</div>
+
+
+

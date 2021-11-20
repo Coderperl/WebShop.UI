@@ -1,27 +1,27 @@
 [
   {
     "CardId": 1,
-    "CardNumber": 133742069,
-    "CardType": "Debit"
+    "CardNumber": 133742069
+   
   },
   {
     "CardId": 2,
-    "CardNumber": 133769420,
-    "CardType": "Credit"
+    "CardNumber": 133769420
+    
   },
   {
     "CardId": 3,
-    "CardNumber": 420691337,
-    "CardType": "Debit"
+    "CardNumber": 420691337
+    
   },
   {
     "CardId": 4,
-    "CardNumber": 691337420,
-    "CardType": "Credit"
+    "CardNumber": 69133742
+    
   },
   {
     "CardId": 5,
-    "CardNumber": 374213069,
-    "CardType": "Debit"
+    "CardNumber": 374213069
+    
   }
 ]

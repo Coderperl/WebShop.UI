@@ -23,7 +23,7 @@ namespace WebShop.Access
 
         public IEnumerable<CardDTO> LoadAll()
         {
-            throw new NotImplementedException();
+            return _DataSource.LoadAll();
         }
 
         public CardDTO LoadById(int i)
