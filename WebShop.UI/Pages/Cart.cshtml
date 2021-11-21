@@ -3,19 +3,30 @@
 @using Microsoft.AspNetCore.Http;
 <p>Using: @Model.custAccess.LoadById((int)HttpContext.Session.GetInt32("CustomerId")).CustomerName</p>
 <h1>Shopping Cart</h1>
-<div>
-    @foreach (var item in Model.Cart)
+<div class="container-fluid">
+    @{double sum = 0;}
+    @for (int i = 0; i < Model.Cart.Count; i++)
     {
-        <p>
-            Product: @item.ProductName;
-            Price: @item.ProductPrice;
-            <div>
-                <p>
-                 Total cost: @(item.ProductPrice + item.ProductPrice)
-                </p>  
-            </div>
-        </p>
- 
-    }
+        var product = Model.Cart[i];
+        sum += product.ProductPrice;
 
-</div>  
+        <div>
+            Product: @product.ProductName;
+            Price: @product.ProductPrice.ToString("N");
+            <span>
+                <form asp-page="/Cart" asp-page-handler="Remove" method="post">
+                    <input type="hidden" name="index" value="@i" />
+                    <button type="submit" class="btn btn-outline-danger">Remove</button>
+                </form>
+            </span>
+        </div>
+
+    }
+</div>
+<div>Total Sum :@sum.ToString("N")</div>
+<div>
+    <a asp-page="/Order" asp-page-handler="PlaceOrder" class="btn btn-success">Place Order</a>
+</div>
+
+
+

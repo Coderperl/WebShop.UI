@@ -10,10 +10,10 @@ namespace WebShop.DTO
     {
         public int Id { get; set; }
         public List<ProductDTO> Products { get; set; }
-        public ShoppingCartDTO(int Id, List<ProductDTO> products)
+        public ShoppingCartDTO(int Id)
         {
             this.Id = Id;
-            Products = products;
+            Products = new();
         }
 
     }

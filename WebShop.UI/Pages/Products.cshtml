@@ -22,7 +22,7 @@
             <div class="card-body">
                 <h5 class="card-title">@product.ProductName</h5>
                 <p class="card-text">@product.ProductDescription</p>
-                <p class="card-text">Current Price: @product.ProductPrice:-</p>
+                <p class="card-text">Current Price: @product.ProductPrice.ToString("C"):-</p>
                 <form asp-page-handler="AddToCart" asp-page="/Cart" method="post">
                     <input type="hidden" name="ProductId" value="@(product.ProductID)" />
                     <button class="btn btn-primary" type="submit">Add to cart</button>

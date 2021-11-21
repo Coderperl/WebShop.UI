@@ -29,10 +29,18 @@ namespace WebShop.UI.Pages
             this.prodAccess = prodAccess;
             this.custAccess = custAccess;
         }
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            Products = prodAccess.LoadAll().ToList();
-            Customer = custAccess.LoadById((int)HttpContext.Session.GetInt32("CustomerId"));
+            int? id = HttpContext.Session.GetInt32("CustomerId");
+            if (id.HasValue)
+            {
+                Products = prodAccess.LoadAll().ToList();
+                return Page();
+            }
+            else
+            {
+               return RedirectToPage("/Customers");
+            }
         }
         public ActionResult OnPostSearch()
         {

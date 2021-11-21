@@ -10,7 +10,8 @@ namespace WebShop.Access
 {
     public class ShoppingCartData : IDataSource<ShoppingCartDTO>
     {
-        string path = @"C:\Users\pelle\source\repos\WebShop.UI\WebShop.Data\ShoppingCarts.json";
+        string path = @"C:\Users\pelle\source\repos\WebShop.UI\WebShop.Data\json\ShoppingCarts.json";
+
         public bool Delete(ShoppingCartDTO _object)
         {
             throw new NotImplementedException();

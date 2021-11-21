@@ -12,7 +12,7 @@ namespace WebShop.Access
 {
     public class RecieptData : IDataSource<RecieptDTO>
     {
-        string path = @"C:\Users\pelle\source\repos\WebShop.UI\WebShop.Data\Reciepts.json";
+        string path = @"C:\Users\pelle\source\repos\WebShop.UI\WebShop.Data\json\Reciepts.json";
         public bool Delete(RecieptDTO _object)
         {
             throw new NotImplementedException();

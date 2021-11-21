@@ -17,7 +17,7 @@ namespace WebShop.UI.Pages
         private readonly IDataAccess<ShoppingCartDTO> cartAccess;
 
         
-        public ProductDTO Product { get; set; }
+        
         public CustomerDTO Customer { get; set; }
         public List<ProductDTO> Cart { get; set; }
 
@@ -32,21 +32,37 @@ namespace WebShop.UI.Pages
         public ActionResult OnGet()
         {
             int? Id = HttpContext.Session.GetInt32("CustomerId");
-            ShoppingCartDTO userCart = cartAccess.LoadById(Id.Value);
-            if (userCart == null)
+            if (Id.HasValue)
             {
-                userCart = new(Id.Value, new List<ProductDTO>());
-                cartAccess.Save(userCart);
-                Cart = userCart.Products;
-                return Page();
-                
+                ShoppingCartDTO userCart = cartAccess.LoadById(Id.Value);
+                if (userCart == null)
+                {
+                    userCart = new(Id.Value);
+                    cartAccess.Save(userCart);
+                    Cart = userCart.Products;
+                    return Page();
+                }
+                else
+                {
+                    Cart = userCart.Products;
+                    return Page();
+                }
             }
             else
             {
-                Cart = userCart.Products;
-                return Page();
-            }     
+                return RedirectToPage("/Customers");
+            }
         }
+        public IActionResult OnPostRemove(int index)
+        {
+            int? Id = HttpContext.Session.GetInt32("CustomerId");
+            ShoppingCartDTO userCart = cartAccess.LoadById(Id.Value);
+            userCart.Products.RemoveAt(index);
+            cartAccess.Update(userCart);
+            return RedirectToPage("/Cart");
+
+        }
+
         public IActionResult OnPostAddToCart(int ProductId)
         {
 
@@ -54,7 +70,7 @@ namespace WebShop.UI.Pages
             ShoppingCartDTO userCart = cartAccess.LoadById(Id.Value);
             if (userCart == null)
             {
-                userCart = new(Id.Value, new List<ProductDTO>());
+                userCart = new(Id.Value);
                 ProductDTO product = prodAccess.LoadById(ProductId);
                 userCart.Products.Add(product);
                 cartAccess.Save(userCart);

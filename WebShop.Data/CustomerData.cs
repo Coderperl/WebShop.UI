@@ -12,7 +12,7 @@ namespace WebShop.Access
 {
     public class CustomerData : IDataSource<CustomerDTO>
     {
-        string path = @"C:\Users\pelle\source\repos\WebShop.UI\WebShop.Data\Customers.json";
+        string path = @"C:\Users\pelle\source\repos\WebShop.UI\WebShop.Data\json\Customers.json";
         public bool Delete(CustomerDTO _object)
         {
             if (null != LoadById(_object.CustomerID))

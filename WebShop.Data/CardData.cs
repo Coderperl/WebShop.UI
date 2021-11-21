@@ -12,7 +12,7 @@ namespace WebShop.Access
 {
     public class CardData : IDataSource<CardDTO>
     {
-        string path = @"C:\Users\pelle\source\repos\WebShop.UI\WebShop.Data\Card.json";
+        string path = @"C:\Users\pelle\source\repos\WebShop.UI\WebShop.Data\json\Card.json";
         public bool Delete(CardDTO _object)
         {
             throw new NotImplementedException();
