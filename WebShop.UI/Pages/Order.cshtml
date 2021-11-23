@@ -21,21 +21,9 @@
                 <th scope="col">
                     Order Id @cart.OrderId
                 </th>
-                <th>
-                    <form method="post">
-                        <input type="hidden" asp-for="Id" value="@cart.OrderId" />
-                        @if (!cart.IsPaid)
-                        {
-                            <button class="btn btn-outline-primary" asp-page-handler="Pay">Pay</button>
-                        }
-                        else
-                        {
-                            <button class="btn btn-outline-primary" asp-page-handler="Pay">Receipt</button>
-                        }
-                    </form>
-                </th>
             </tr>
         </thead>
+
         <tbody>
             @{double sum = 0;}
             @foreach (var product in cart.Products)
@@ -57,9 +45,24 @@
         </tbody>
 
     </table>
-    <p>Total Sum :@sum.ToString("C")</p>
+    <p>
+        Total Sum: @sum.ToString("C")
+    <p>Payment Option: CardNumber: @Model.cardAccess.LoadById((int)HttpContext.Session.GetInt32("CustomerId")).CardNumber</p>
+
+    <form method="post">
+        <input type="hidden" asp-for="Id" value="@cart.OrderId" />
+        @if (!cart.IsPaid)
+        {
+            <button class="btn btn-outline-primary" asp-page-handler="Pay">Pay</button>
+        }
+        else
+        {
+            <button class="btn btn-outline-primary" asp-page-handler="Pay">Receipt</button>
+        }
+    </form>
+    </p>
 }
-<p>Payment Option: CardNumber: @Model.cardAccess.LoadById((int)HttpContext.Session.GetInt32("CustomerId")).CardNumber</p>
+
 
 
 

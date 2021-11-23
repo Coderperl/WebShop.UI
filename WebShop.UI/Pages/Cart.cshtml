@@ -11,7 +11,7 @@
         sum += product.ProductPrice;
 
         <div>
-            <table class="table">
+            <table class="table" >
                 <thead>
                     <tr>
                         <th scope="col">
@@ -26,13 +26,13 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
+                        <td class="w-25">
                             @product.ProductName
                         </td>
-                        <td>
+                        <td class="w-50">
                             @product.ProductPrice.ToString("C")
                         </td>
-                        <td>
+                        <td class="w-25">
                             <form asp-page="/Cart" asp-page-handler="Remove" method="post">
                                 <input type="hidden" name="index" value="@i" />
                                 <button type="submit" class="btn btn-outline-danger">X</button>
