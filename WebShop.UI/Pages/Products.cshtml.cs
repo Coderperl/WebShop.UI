@@ -42,6 +42,16 @@ namespace WebShop.UI.Pages
                return RedirectToPage("/Customers");
             }
         }
+        public IActionResult OnPostSortPriceUp()
+        {
+            Products = prodAccess.LoadAll().ToList().OrderBy(p => p.ProductPrice).ToList();
+            return Page();
+        }
+        public IActionResult OnPostSortPriceDown()
+        {
+            Products = prodAccess.LoadAll().ToList().OrderByDescending(p => p.ProductPrice).ToList();
+            return Page();
+        }
         public ActionResult OnPostSearch()
         {
             if (!string.IsNullOrEmpty(SearchTerm))

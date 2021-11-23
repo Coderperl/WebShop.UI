@@ -1,4 +1,33 @@
 ﻿@page
 @model WebShop.UI.Pages.ReceiptsModel
 @{
+    ViewData["Title"] = "Receipts";
+}
+@using Microsoft.AspNetCore.Http;
+
+<h1>Receipt</h1>
+
+@{double sum = 0;}
+@foreach (var receipt in Model.Receipts)
+{
+    <h4>Receipt number: @receipt.ReceiptId</h4>
+    <p>Name: @Model.custAccess.LoadById((int)HttpContext.Session.GetInt32("CustomerId")).CustomerName</p>
+    <p>Paid with: @Model.cardAccess.LoadById((int)HttpContext.Session.GetInt32("CustomerId")).CardNumber</p>
+    <p>Paid at: @DateTime.Now </p>
+    @foreach (var product in receipt.Order.Products)
+    {
+        sum += product.ProductPrice;
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <p>@product.ProductName</p>
+                <p>@product.ProductPrice.ToString("C")</p>
+
+            </li>
+        </ul>
+
+        <br />
+    }
+    <h4>Total Sum: @sum.ToString("C")</h4>
+    {sum = 0; }
+
 }

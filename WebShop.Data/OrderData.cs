@@ -19,7 +19,7 @@ namespace WebShop.Access
             {
                 OrderDTO newOrder = _object;
                 List<OrderDTO> orders = LoadAll().ToList();
-                orders.RemoveAll(OldUser => OldUser.OrderId == newOrder.OrderId);
+                orders.RemoveAll(oldOrder => oldOrder.OrderId == newOrder.OrderId);
                 orders.Sort();
                 File.WriteAllText(path, JsonConvert.SerializeObject(orders));
                 return true;
@@ -47,10 +47,10 @@ namespace WebShop.Access
             }
             else
             {
-                _object.OrderId = (orders.Last().OrderId + 1);
+                _object.OrderId = (orders.Max(x=> x.OrderId) + 1);
             }
             orders.Add(_object);
-            File.WriteAllText(path, JsonConvert.SerializeObject(orders));
+            File.WriteAllText(path, JsonConvert.SerializeObject(orders, Formatting.Indented));
         }
 
         public OrderDTO Update(OrderDTO _object)

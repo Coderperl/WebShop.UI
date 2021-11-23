@@ -28,7 +28,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-page="/Cart">Shopping Cart</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Order">Order</a>
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" asp-page="/Order" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Services
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" asp-page="/Order">Orders</a>
+                                    <a class="dropdown-item" asp-page="/Receipts">Receipts</a>
+
+                                </div>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>

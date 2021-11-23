@@ -16,20 +16,27 @@
             </div>
         </div>
     </form>
-        @foreach (var product in Model.Products.ToList())
-        {
-            <img class="card-img-top w-50" src="/images/@product.PhotoPath" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">@product.ProductName</h5>
-                <p class="card-text">@product.ProductDescription</p>
-                <p class="card-text">Current Price: @product.ProductPrice.ToString("C"):-</p>
-                <form asp-page-handler="AddToCart" asp-page="/Cart" method="post">
-                    <input type="hidden" name="ProductId" value="@(product.ProductID)" />
-                    <button class="btn btn-primary" type="submit">Add to cart</button>
-                </form>
+    <form asp-page-handler="SortPriceUp" method="post">
+        <button type="submit" class="btn btn-primary">Sort Price Ascending</button>
+    </form>
+    <form asp-page-handler="SortPriceDown" method="post">
+        <button type="submit" class="btn btn-primary">Sort Price descending</button>
+    </form>
 
-            </div>
-        }
+    @foreach (var product in Model.Products.ToList())
+    {
+        <img class="card-img-top w-50" src="/images/@product.PhotoPath" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@product.ProductName</h5>
+            <p class="card-text">@product.ProductDescription</p>
+            <p class="card-text">Current Price: @product.ProductPrice.ToString("C"):-</p>
+            <form asp-page-handler="AddToCart" asp-page="/Cart" method="post">
+                <input type="hidden" name="ProductId" value="@(product.ProductID)" />
+                <button class="btn btn-primary" type="submit">Add to cart</button>
+            </form>
+
+        </div>
+    }
 </div>
 
 

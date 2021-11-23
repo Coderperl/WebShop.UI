@@ -30,13 +30,20 @@ namespace WebShop.Access
 
         public void Save(RecieptDTO _object)
         {
-            RecieptDTO newReciept = _object; ;
-            List<RecieptDTO> reciepts = LoadAll().ToList();
-            string currentReciept = (reciepts.Last().Reciept + 1);
-            newReciept.Reciept = currentReciept;
-            reciepts.Add(newReciept);
-            reciepts.Sort();
-            File.WriteAllText(path, JsonConvert.SerializeObject(reciepts));
+            {
+                List<RecieptDTO> receipts = LoadAll().ToList();
+
+                if (receipts.Count() == 0)
+                {
+                    _object.ReceiptId = 0;
+                }
+                else
+                {
+                    _object.ReceiptId = (receipts.Max(x=> x.ReceiptId)+ 1);
+                }
+                receipts.Add(_object);
+                File.WriteAllText(path, JsonConvert.SerializeObject(receipts));
+            }
         }
 
         public RecieptDTO Update(RecieptDTO _object)

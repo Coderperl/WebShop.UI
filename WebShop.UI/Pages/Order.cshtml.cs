@@ -16,19 +16,22 @@ namespace WebShop.UI.Pages
         public readonly IDataAccess<ShoppingCartDTO> cartAccess;
         public readonly IDataAccess<CustomerDTO> custAccess;
         public readonly IDataAccess<CardDTO> cardAccess;
+        private readonly IDataAccess<RecieptDTO> receiptAccess;
         public readonly IDataAccess<ProductDTO> prodAccess;
-
+        [BindProperty]
+        public int Id { get; set; }
         public List<OrderDTO> Orders { get; set; }
         public CustomerDTO Customer { get; set; }
 
 
-        public OrderModel(IDataAccess<OrderDTO> orderAccess, IDataAccess<ShoppingCartDTO> cartAccess, IDataAccess<CustomerDTO> custAccess, IDataAccess<CardDTO> cardAccess, IDataAccess<ProductDTO> prodAccess)
+
+        public OrderModel(IDataAccess<OrderDTO> orderAccess, IDataAccess<ShoppingCartDTO> cartAccess, IDataAccess<CustomerDTO> custAccess, IDataAccess<CardDTO> cardAccess, IDataAccess<RecieptDTO>receipAccess)
         {
             this.orderAccess = orderAccess;
             this.cartAccess = cartAccess;
             this.custAccess = custAccess;
             this.cardAccess = cardAccess;
-            this.prodAccess = prodAccess;
+            this.receiptAccess = receipAccess;
         }
         public IActionResult OnGetPlaceOrder()
         {
@@ -59,8 +62,30 @@ namespace WebShop.UI.Pages
             {
                 return RedirectToPage("/Customers");
             }
+        }
+        public IActionResult OnPostPay()
+        {
+            Orders = orderAccess.LoadAll().ToList();
+            var order = orderAccess.LoadById(Id);
+            if (!order.IsPaid)
+            {
+                order.IsPaid = true;
+                orderAccess.Update(order);
+                receiptAccess.Save(new RecieptDTO() { Order = order });
+            }
             
-            
+            return RedirectToPage("/Receipts");
+        }
+        public IActionResult OnPostReceipt()
+        {
+            if (ModelState.IsValid)
+            {
+                return RedirectToPage("/Receipts");
+            }
+            else
+            {
+                return Page();
+            }
         }
     }
 }

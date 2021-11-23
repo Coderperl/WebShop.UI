@@ -8,7 +8,10 @@ namespace WebShop.DTO
 {
     public class RecieptDTO
     {
-        public string Reciept { get; set; }
+        public int ReceiptId { get; set; }
+        public OrderDTO Order { get; set; }
+
+        
 
     }
 }

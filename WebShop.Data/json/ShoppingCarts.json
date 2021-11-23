@@ -1,14 +1,1 @@
-[
-  {
-    "Id": 1,
-    "Products": [
-      {
-        "ProductID": 1,
-        "ProductName": "Saturn V Rocket",
-        "ProductDescription": "Merlin is a family of rocket engines developed by SpaceX for use on its Falcon 1, Falcon 9 and Falcon Heavy launch vehicles. Merlin engines use a rocket grade kerosene (RP-1) and liquid oxygen as rocket propellants in a gas-generator power cycle. The Merlin engine was originally designed for recovery and reuse.",
-        "ProductPrice": 4960000000.0,
-        "PhotoPath": "SaturnV.jpg"
-      }
-    ]
-  }
-]
+[{"Id":4,"Products":[]},{"Id":5,"Products":[]},{"Id":3,"Products":[]},{"Id":2,"Products":[]},{"Id":1,"Products":[]}]
