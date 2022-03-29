@@ -8,9 +8,6 @@ namespace WebShop.DTO
         public string CustomerName { get; set; }
         public string Email { get; set; }
         public int CardId { get; set; }
-        //public CustomerDTO(CardDTO card)
-        //{
-        //    Card = card;
-        //}
+       
     }
 }
